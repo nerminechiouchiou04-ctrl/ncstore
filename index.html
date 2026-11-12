@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NC Store — sneakers et streetwear. Découvrez les modèles, choisissez votre pointure et commandez en Tunisie.">
+  <title>NC STORE — Sneakers & Streetwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">NC STORE · Livraison partout en Tunisie · Paiement à la livraison</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="NC Store accueil">NC<span>.</span></a>
+    <nav class="main-nav"><a href="#home">Accueil</a><a href="#shop">Shop</a><a href="#about">À propos</a></nav>
+    <div class="header-actions">
+      <button class="icon-button" id="cart-open" aria-label="Ouvrir le panier">Panier <span class="cart-count" id="cart-count">0</span></button>
+      <button class="admin-link" id="admin-open">Admin ↗</button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> NEW SEASON / NEW ENERGY</p>
+        <h1>STEP INTO<br><em>YOUR STYLE.</em></h1>
+        <p class="hero-description">Les sneakers qui donnent du caractère à chaque tenue. Trouve ton prochain modèle chez NC Store.</p>
+        <a class="primary-button" href="#shop">Découvrir la collection <span>↗</span></a>
+        <div class="hero-note"><b>NC STORE</b><span>Streetwear essentials · Tunisia</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-orbit"></div>
+        <div class="hero-sticker">FIND<br>YOUR<br>PAIR<span>✳</span></div>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1100&q=85" alt="Sneaker rouge en gros plan">
+        <div class="hero-caption">BUILT FOR<br>EVERYDAY MOVEMENT.</div>
+      </div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE NC SELECTION</p><h2>Shop the <em>drop.</em></h2></div>
+        <p>Choisis ton modèle, ta couleur et ta pointure.</p>
+      </div>
+      <div class="shop-toolbar">
+        <div class="filters" id="filters"><button class="filter active" data-filter="all">Tous</button><button class="filter" data-filter="Adidas">Adidas</button><button class="filter" data-filter="Nike">Nike</button><button class="filter" data-filter="Autres">Autres</button></div>
+        <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Rechercher un modèle..."></label>
+      </div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="about-strip" id="about"><span class="about-mark">NC.</span><div><p class="eyebrow">THE NC STORE WAY</p><h2>Good shoes.<br><em>Good moves.</em></h2></div><p>Une sélection de sneakers pour ton quotidien. Parcours les modèles, vérifie les pointures disponibles et passe ta commande en quelques étapes.</p></section>
+  </main>
+
+  <footer><a class="brand" href="#">NC<span>.</span></a><p>© <span id="year"></span> NC Store · Tunisia</p><a href="#home">Retour en haut ↑</a></footer>
+
+  <div class="overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Panier">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Ton panier <span id="drawer-count">(0)</span></h2></div><button class="close-button" data-close="cart">×</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-bottom"><div class="total-line"><span>Total</span><strong id="cart-total">0 DT</strong></div><button class="primary-button full" id="checkout-open">Commander <span>→</span></button><p class="fine-print">Les frais de livraison seront confirmés avec toi.</p></div>
+  </aside>
+
+  <div class="modal-wrap" id="checkout-modal">
+    <div class="modal">
+      <div class="modal-heading"><div><p class="eyebrow">FINAL STEP</p><h2>Finaliser la commande</h2></div><button class="close-button" data-close="checkout">×</button></div>
+      <form id="checkout-form" class="checkout-form">
+        <label>Nom et prénom<input name="customer" required placeholder="Ton nom complet"></label>
+        <label>Téléphone<input name="phone" required type="tel" placeholder="Ex. 20 000 000"></label>
+        <label>Ville / Gouvernorat<input name="city" required placeholder="Ex. Houmt Souk, Djerba"></label>
+        <label>Adresse de livraison<textarea name="address" required rows="2" placeholder="Adresse complète"></textarea></label>
+        <label>Note (facultatif)<textarea name="note" rows="2" placeholder="Une précision sur ta commande..."></textarea></label>
+        <div class="checkout-summary"><span>Total de la commande</span><strong id="checkout-total">0 DT</strong></div>
+        <button class="primary-button full" type="submit">Envoyer ma commande <span>↗</span></button>
+        <p class="fine-print">Prototype : les commandes sont enregistrées dans ce navigateur uniquement. Le système réel sera connecté à une base de données.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-wrap" id="product-modal"><div class="modal product-modal-content" id="product-detail"></div></div>
+
+  <div class="admin-screen" id="admin-screen">
+    <div class="admin-top"><a class="brand" href="#">NC<span>.</span></a><div><span class="admin-status"></span> MODE GESTION / DÉMO</div><button class="admin-exit" id="admin-close">← Retour à la boutique</button></div>
+    <div class="admin-layout">
+      <aside class="admin-sidebar"><p class="eyebrow">WORKSPACE</p><button class="admin-tab active" data-tab="overview">▦ Vue générale</button><button class="admin-tab" data-tab="products">◇ Produits</button><button class="admin-tab" data-tab="orders">▤ Commandes</button><div class="sidebar-note">NC STORE<br><span>Admin workspace</span></div></aside>
+      <section class="admin-content">
+        <div class="admin-panel active" id="panel-overview"><p class="eyebrow">OVERVIEW</p><h1>Bonjour, <em>NC.</em></h1><p class="admin-subtitle">Voici un aperçu de ton espace boutique.</p><div class="stats-grid"><article class="stat-card"><span>Produits</span><strong id="stat-products">0</strong></article><article class="stat-card"><span>Commandes</span><strong id="stat-orders">0</strong></article><article class="stat-card"><span>Chiffre commandes</span><strong id="stat-revenue">0 DT</strong></article></div><div class="admin-box"><div class="box-heading"><h3>Dernières commandes</h3><button class="text-action" data-goto="orders">Voir tout →</button></div><div id="recent-orders"></div></div></div>
+        <div class="admin-panel" id="panel-products"><div class="panel-title"><div><p class="eyebrow">CATALOGUE</p><h1>Gérer les <em>produits.</em></h1></div><button class="primary-button" id="add-product">+ Ajouter un produit</button></div><div class="admin-box"><div id="admin-products"></div></div></div>
+        <div class="admin-panel" id="panel-orders"><p class="eyebrow">SALES</p><h1>Les <em>commandes.</em></h1><div class="admin-box"><div id="admin-orders"></div></div></div>
+      </section>
+    </div>
+    <p class="admin-warning">Version de démarrage : données stockées localement dans ce navigateur. Ne saisis pas de données personnelles réelles. Une authentification sécurisée et une base de données seront ajoutées avec Laravel.</p>
+  </div>
+
+  <div class="modal-wrap" id="product-form-modal"><div class="modal">
+    <div class="modal-heading"><div><p class="eyebrow">CATALOGUE NC</p><h2 id="product-form-title">Ajouter un produit</h2></div><button class="close-button" data-close="product-form">×</button></div>
+    <form id="product-form" class="checkout-form">
+      <input type="hidden" name="id">
+      <label>Nom du modèle<input name="name" required placeholder="Ex. Adidas Samba OG"></label>
+      <div class="form-row"><label>Marque<select name="brand"><option>Adidas</option><option>Nike</option><option>Autres</option></select></label><label>Prix (DT)<input name="price" type="number" min="1" required placeholder="140"></label></div>
+      <label>Couleurs disponibles<input name="colors" placeholder="Black / White, Beige..."></label>
+      <label>Pointures disponibles<input name="sizes" placeholder="36, 37, 38, 39, 40"></label>
+      <label>Stock (quantité)<input name="stock" type="number" min="0" value="1"></label>
+      <label>Description<textarea name="description" rows="3" placeholder="Décris le modèle..."></textarea></label>
+      <label>Photo du produit<input name="image" type="file" accept="image/*"></label>
+      <label>Ou URL de la photo<input name="imageUrl" type="url" placeholder="https://..."></label>
+      <button class="primary-button full" type="submit">Enregistrer le produit <span>↗</span></button>
+    </form>
+  </div></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
